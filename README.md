@@ -17,10 +17,10 @@ Make sure you have the following dependencies installed:
 
 ## Usage
 - Clone this repository to your local machine or download the source code as a ZIP file.
-- Install the required dependencies mentioned in the "Prerequisites" section.
+- Install the required dependencies.
 - Open a terminal or command prompt and navigate to the project directory.
-- Run the voice_chatbot.py file using the command: python voice_chatbot.py.
-- The chatbot will initialize and wait for your spoken commands.
+- Run the chatbot.py file using the command: python chatbot.py.
+- The chatbot will train and initialize and wait for your spoken commands.
 - Start speaking your command after the beep sound, and the chatbot will process and respond to it accordingly.
 
 ## Customization
