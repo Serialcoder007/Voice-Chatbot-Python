@@ -1,4 +1,4 @@
-# Voice Chatbot in Python
+# Voice Chatbot in Python (PyCharm preferred)
 This is a simple voice chatbot implemented in Python using the power of speech recognition and natural language processing. It allows users to interact with the chatbot by speaking their commands and receiving responses in real-time.
 
 ## Features
