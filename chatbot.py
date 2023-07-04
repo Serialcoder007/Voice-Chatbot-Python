@@ -1,14 +1,3 @@
-def get_response(usrText):
-    while True:
-        if usrText.strip() != 'Bye':
-            result = bot.get_response(usrText)
-            reply = str(result)
-            return (reply)
-        if usrText.strip() == 'bye':
-            return ('Bye')
-            break
-
-
 import datetime
 import os
 import random
@@ -56,7 +45,7 @@ def speekInput():
     with sr.Microphone() as mic:
         rec.adjust_for_ambient_noise(mic)
         print('\rListening...')
-        rec.pause_threshold = 1
+        rec.pause_threshold = 0.7
         listen = rec.listen(mic, phrase_time_limit=5)
     try:
         print("\rRecognizing... ")
@@ -73,29 +62,20 @@ def main():
         output = speekInput()
         if output == "try again":
             continue
-        printWithSpeek(str(bot.get_response(output)))
-
         if output == 'exit':
-            speak("GoodBye Saad")
+            speak("GoodBye")
             exit()
+        if 'open' in output:
+            sites = [["youtube", "https://www.youtube.com"], ["wikipedia", "https://www.wikipedia.com"],
+                     ["google", "https://www.google.com"], ["gmail", "https://www.gmail.com"]]
+            for site in sites:
+                if f"Open {site[0]}".lower() in output.lower():
+                    printWithSpeek(f"Opening {site[0]} sir...")
+                    webbrowser.open(site[1])
+        else:
+            printWithSpeek(str(bot.get_response(output)))
 
 try:
     main()
 except Exception as e:
     printWithSpeek(e)
-# class ChatServer(WebSocket):
-#
-#     def handleMessage(self):
-#         # echo le message reponse.
-#         message = self.data
-#         response = get_response(message)
-#         self.sendMessage(response)
-#
-#     def handleConnected(self):
-#         print(self.address, 'connected')
-#
-#     def handleClose(self):
-#         print(self.address, 'closed')
-#
-# server = SimpleWebSocketServer('', 8000, ChatServer)
-# server.serveforever()
